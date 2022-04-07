@@ -1,0 +1,240 @@
+:root {
+    --main-bg-color: #009d63;
+    --main-text-color: #009d63;
+    --second-text-color: #bbbec5;
+    --second-bg-color: #c1efde;
+}
+
+.primary-text {
+    color: var(--main-text-color);
+}
+
+.second-text {
+    color: var(--second-text-color);
+}
+
+.primary-bg {
+    background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+    background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+    border-radius: 100%;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    background-image: linear-gradient( to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef);
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+.list-group-item {
+    border: none;
+    padding: 20px 30px;
+}
+
+.list-group-item.active {
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-weight: bold;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+
+/* ------------------------------------------------- */
+
+.profile {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, .08);
+}
+
+.profile .left {
+    width: 35%;
+    background: linear-gradient(to right, #FAD961, #F76B1C);
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #fff;
+}
+
+.profile .left h5 {
+    font-size: 20px;
+}
+
+.profile .left img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.profile .left h4 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.profile .left h6 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    padding-top: 80px;
+}
+
+.ltitle {
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+.hoby li {
+    float: left;
+    font-size: .9rem;
+    padding: 15px;
+    text-align: center;
+    width: 33.33%;
+}
+
+.hoby li i {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.profile .left p {
+    font-size: 20px;
+}
+
+.profile .right {
+    width: 65%;
+    background: #fff;
+    padding: 50px 45px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.profile .right .info,
+.profile .right .projects {
+    margin-bottom: 25px;
+}
+
+.profile .right .info h3,
+.profile .right .projects h3 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.profile .right .info_data,
+.profile .right .projects_data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile .right .info_data .data,
+.profile .right .projects_data .data {
+    width: 45%;
+}
+
+.profile .right .info_data .data h4,
+.profile .right .projects_data .data h4 {
+    font-size: 20px;
+    color: #353c4e;
+    margin-bottom: 5px;
+}
+
+.profile .right .info_data .data p,
+.profile .right .projects_data .data p {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #919aa3;
+}
+
+.profile .social_media ul {
+    display: flex;
+}
+
+.profile .social_media ul li {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(to right, #FAD961, #F76B1C);
+    margin-right: 10px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 45px;
+}
+
+.profile .social_media ul li a {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+}
+
+
+/* .projects a{
+      text-decoration: none;
+      margin-left: 50px;
+      color: #e6762c;
+      padding-left: 100px;
+  } */
+
+.editprofile {
+    margin-left: 60%;
+    margin-top: -3%;
+}
+
+.editprofile a {
+    font-size: 25px;
+    color: orange;
+    text-decoration: none;
+}

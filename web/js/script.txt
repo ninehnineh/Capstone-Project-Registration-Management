@@ -1,0 +1,269 @@
+onInput="checkUsernameAvailability()"
+.................................
+
+
+
+<script>
+
+function User()
+{
+this.username="";
+this.password="";
+}
+function UserService()
+{
+this.authenticate=function(user,onSuccess,onFailure,onError)
+{
+$.ajax({
+"url": "authenticate",
+"contentType": "application/json",
+"type": "POST",
+"dataType": "Json" ,
+"data": JSON.stringify(user),
+"success": function (data)
+{
+if(data.success)
+{
+onSuccess();
+}
+else
+{
+onFailure();
+}
+},
+"error":function()
+{
+alert("Error");	
+}
+});
+
+};
+} 
+
+
+function login()
+{ 
+var username=$.trim($("#username").val());
+var password=$("#password").val();
+ var valid=true;
+if(username.length==0)
+{
+$("#usernameGroup").addClass("has-error");
+valid=false;
+}
+else
+{
+$("#usernameGroup").removeClass("has-error");
+}
+if(password.length==0)
+{
+$("#passwordGroup").addClass("has-error");
+valid=false;
+}
+else
+{
+$("#passwordGroup").removeClass("has-error");
+}
+if (!valid) return;
+var user=new User();
+user.username=username;
+user.password=password;
+var userService=new UserService();
+userService.authenticate(user,function()
+{
+$(location).attr("href","Home.jsp");
+$('#myAlert').hide('fade');
+},function()
+{
+$('#myAlert').show('fade');
+$('#password').val(''); 
+},function(error)
+{
+//change page(oops,something went wrong,try again later)
+}
+);
+}
+</script>
+........................................................................................
+
+<script src="js/jquery-3.4.1.min.js">
+</script>
+
+<script>
+
+function Member()
+{
+this.name="";
+this.username="";
+this.password="";
+}
+
+
+
+
+function MemberService()
+{
+this.authenticate=function(member,onSuccess,onFailure,onError)
+{
+$.ajax({
+"url": "register",
+"contentType": "application/json",
+"type": "POST" ,
+"dataType": "Json" ,
+"data": JSON.stringify(member),
+"success": function (data)
+{
+if(data.success)
+{
+onSuccess();
+}
+else
+{
+onFailure();
+}
+},
+"error":function()
+{
+alert("Error:try after some time");	
+}
+});
+};
+
+
+
+
+
+
+
+this.isAvailable=function(username,onResponse,onError)
+{
+$.ajax({
+"url": "isUsernameAvailable",
+"contentType": "application/json",
+"type": "POST" ,
+"dataType": "Json" ,
+"data": JSON.stringify({
+"username":username
+}),
+"success": function (responseJSON)
+{
+onResponse(responseJSON.available);
+},
+"error":function()
+{
+onError();
+}
+});
+};
+
+
+}
+
+
+
+
+function checkUsernameAvailability()
+{
+var username=$.trim($("#username").val());
+var memberService=new MemberService(); 
+memberService.isAvailable(username,function(responseStatus)
+{
+if(responseStatus==true)
+{
+$("#usernameGroup").removeClass("has-error");
+$('#myAlert').hide('fade');
+$("#ok").show();
+$("#wrong").hide();
+$("#user").hide();
+$("#error").hide();
+}
+else
+{
+$("#usernameGroup").addClass("has-error");
+$('#myAlert').show('fade');
+$("#ok").hide();
+$("#wrong").show();
+$("#user").hide();
+$("#error").show();
+}
+},function(error)
+{
+//change page(oops,something went wrong,try again later)
+}
+);
+}
+
+function register()
+{
+var name=$.trim($("#name").val());
+var username=$.trim($("#username").val());
+var password=$("#password").val();
+var repassword=$("#repassword").val();
+ var valid=true;
+if(name.length==0)
+{
+$("#nameGroup").addClass("has-error");
+valid=false;
+}
+else
+{
+$("#nameGroup").removeClass("has-error");
+}
+if(username.length==0)
+{
+$("#usernameGroup").addClass("has-error");
+valid=false;
+}
+else
+{
+$("#usernameGroup").removeClass("has-error");
+}
+if(password.length==0)
+{
+$("#passwordGroup").addClass("has-error");
+valid=false;
+}
+else
+{
+$("#passwordGroup").removeClass("has-error");
+}
+if(repassword.length==0)
+{
+$("#repasswordGroup").addClass("has-error");
+valid=false;
+}
+else
+{
+$("#repasswordGroup").removeClass("has-error");
+}
+if(password!=repassword)
+{
+$('#password').val(''); 
+$('#repassword').val('');
+$("#passwordGroup").addClass("has-error");
+$("#repasswordGroup").addClass("has-error");
+}
+
+
+if (!valid) return;
+var member=new Member();
+member.name=name;
+member.username=username;
+member.password=password;
+var memberService=new MemberService();
+memberService.authenticate(member,function()
+{
+$(location).attr("href","Login.jsp");
+},function()
+{
+ $('#myAlert').show('fade');
+},function(error)
+{
+//change page(oops,something went wrong,try again later)
+}
+);
+}
+
+
+
+</script>

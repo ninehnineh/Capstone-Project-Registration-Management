@@ -1,0 +1,917 @@
+:root {
+    --main-bg-color: #009d63;
+    --main-text-color: #009d63;
+    --second-text-color: #bbbec5;
+    --second-bg-color: #c1efde;
+}
+
+.primary-text {
+    color: var(--main-text-color);
+}
+
+.second-text {
+    color: var(--second-text-color);
+}
+
+.primary-bg {
+    background-color: var(--main-bg-color);
+}
+
+.secondary-bg {
+    background-color: var(--second-bg-color);
+}
+
+.rounded-full {
+    border-radius: 100%;
+}
+
+#wrapper {
+    overflow-x: hidden;
+    background-image: linear-gradient( to right, #baf3d7, #c2f5de, #cbf7e4, #d4f8ea, #ddfaef);
+    position: -webkit-sticky;
+    position: flex;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin 0.25s ease-out;
+    -moz-transition: margin 0.25s ease-out;
+    -o-transition: margin 0.25s ease-out;
+    transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+    width: 15rem;
+}
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+#menu-toggle {
+    cursor: pointer;
+}
+
+.list-group-item {
+    border: none;
+    padding: 20px 30px;
+}
+
+.list-group-item.active {
+    background-color: transparent;
+    color: var(--main-text-color);
+    font-weight: bold;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+}
+
+.dropdown-container {
+    display: none;
+    padding-left: 8px;
+}
+
+.sidenav .dropdown-btn {
+    padding: 6px 8px 6px 30px;
+    text-decoration: none;
+    font-size: 17px;
+    /* color: #009d63; */
+    display: block;
+    border: none;
+    background: none;
+    text-align: left;
+    outline: none;
+}
+
+.sidenav .dropdown-container a {
+    font-size: 17px;
+    padding-left: 30px;
+    text-decoration: none;
+    display: block;
+    color: #2a3330;
+}
+
+
+/* button to Accept or Deny */
+
+
+/* btn1 */
+
+.btn1 {
+    display: block;
+    /* height: 40px; */
+    text-align: center;
+    /* background: #009d63; */
+    font-size: 18px;
+    border: 2px solid #009d63;
+    border-radius: 50px;
+    color: #009d63;
+    text-transform: uppercase;
+    /* font-family: sans-serif; */
+    letter-spacing: 2px;
+    transition: all 0.1s ease;
+}
+
+.loader1 {
+    font-size: 0;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: 2px solid #009d63;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: animate 1s 0.4s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.finished1 {
+    font-size: 0;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: #009d63;
+    position: relative;
+    animation: special 1s ease-in;
+}
+
+@keyframes special {
+    10% {
+        transform: scale(0.8) translateY(20px);
+    }
+    35% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.finished1:before {
+    content: url('greentick.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------------------ */
+
+.btn2 {
+    display: block;
+    margin-left: 150px;
+    margin-top: -35px;
+    /* height: 40px; */
+    text-align: center;
+    /* background: #009d63; */
+    font-size: 18px;
+    border: 2px solid #ca2626;
+    border-radius: 50px;
+    color: #ca2626;
+    text-transform: uppercase;
+    /* font-family: sans-serif; */
+    letter-spacing: 2px;
+    transition: all 0.1s ease;
+}
+
+.loader2 {
+    font-size: 0;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: 2px solid #ca2626;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: animate 1s 0.4s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.finished2 {
+    font-size: 0;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: #ca2626;
+    position: relative;
+    animation: special 1s ease-in;
+}
+
+@keyframes special {
+    10% {
+        transform: scale(0.8) translateY(20px);
+    }
+    35% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.finished2:before {
+    content: url('redtick.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------------------ */
+
+.btn3 {
+    display: block;
+    /* height: 40px; */
+    text-align: center;
+    /* background: #009d63; */
+    font-size: 18px;
+    border: 2px solid #009d63;
+    border-radius: 50px;
+    color: #009d63;
+    text-transform: uppercase;
+    /* font-family: sans-serif; */
+    letter-spacing: 2px;
+    transition: all 0.1s ease;
+}
+
+.loader3 {
+    font-size: 0;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: 2px solid #009d63;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: animate 1s 0.4s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.finished3 {
+    font-size: 0;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: #009d63;
+    position: relative;
+    animation: special 1s ease-in;
+}
+
+@keyframes special {
+    10% {
+        transform: scale(0.8) translateY(20px);
+    }
+    35% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.finished3:before {
+    content: url('greentick.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------------------ */
+
+.btn4 {
+    display: block;
+    margin-left: 150px;
+    margin-top: -35px;
+    /* height: 40px; */
+    text-align: center;
+    /* background: #009d63; */
+    font-size: 18px;
+    border: 2px solid #ca2626;
+    border-radius: 50px;
+    color: #ca2626;
+    text-transform: uppercase;
+    /* font-family: sans-serif; */
+    letter-spacing: 2px;
+    transition: all 0.1s ease;
+}
+
+.loader4 {
+    font-size: 0;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: 2px solid #ca2626;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: animate 1s 0.4s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.finished4 {
+    font-size: 0;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: #ca2626;
+    position: relative;
+    animation: special 1s ease-in;
+}
+
+@keyframes special {
+    10% {
+        transform: scale(0.8) translateY(20px);
+    }
+    35% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.finished4:before {
+    content: url('redtick.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------------------ */
+
+.btn5 {
+    display: block;
+    /* height: 40px; */
+    text-align: center;
+    /* background: #009d63; */
+    font-size: 18px;
+    border: 2px solid #009d63;
+    border-radius: 50px;
+    color: #009d63;
+    text-transform: uppercase;
+    /* font-family: sans-serif; */
+    letter-spacing: 2px;
+    transition: all 0.1s ease;
+}
+
+.loader5 {
+    font-size: 0;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: 2px solid #009d63;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: animate 1s 0.4s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.finished5 {
+    font-size: 0;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: #009d63;
+    position: relative;
+    animation: special 1s ease-in;
+}
+
+@keyframes special {
+    10% {
+        transform: scale(0.8) translateY(20px);
+    }
+    35% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.finished5:before {
+    content: url('greentick.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------------------ */
+
+.btn6 {
+    display: block;
+    margin-left: 150px;
+    margin-top: -35px;
+    /* height: 40px; */
+    text-align: center;
+    /* background: #009d63; */
+    font-size: 18px;
+    border: 2px solid #ca2626;
+    border-radius: 50px;
+    color: #ca2626;
+    text-transform: uppercase;
+    /* font-family: sans-serif; */
+    letter-spacing: 2px;
+    transition: all 0.1s ease;
+}
+
+.loader6 {
+    font-size: 0;
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    border: 2px solid #ca2626;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: animate 1s 0.4s linear infinite;
+}
+
+@keyframes animate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.finished6 {
+    font-size: 0;
+    height: 40px;
+    width: 40px;
+    border: none;
+    background: #ca2626;
+    position: relative;
+    animation: special 1s ease-in;
+}
+
+@keyframes special {
+    10% {
+        transform: scale(0.8) translateY(20px);
+    }
+    35% {
+        transform: scale(1) translateY(0px);
+    }
+}
+
+.finished6:before {
+    content: url('redtick.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ------------------------------------ */
+
+.select {
+    padding: 8px 12px;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+    border-radius: 5px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('dat:image/svg+xml;utf8,');
+}
+
+.select:focus,
+.select:hover {
+    outline: none;
+    border: 1px solid #bbbbbb;
+}
+
+.select option {
+    background: #ffffff;
+}
+
+.list {
+    text-align: center;
+}
+
+.createbutton button {
+    border: 2px solid #009d63;
+    border-radius: 10px;
+}
+
+.createbutton button a {
+    text-decoration: none;
+    color: #009d63;
+}
+
+
+/* modal seemore in message */
+
+
+/* The Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    -webkit-animation-name: fadeIn;
+    /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    margin: 400px 500px;
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 50%;
+    height: 30%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+/* details */
+
+.heading-1 {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.heading-2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.heading-3 {
+    padding-top: 60px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: crimson;
+    margin-bottom: 10px;
+}
+
+
+/* .sub-heading {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;ww
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  } */
+
+.sub-heading p {
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-right: 10px;
+}
+
+.sub-heading span {
+    color: #555;
+    font-weight: 300;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+}
+
+.sub-heading .importent {
+    color: crimson;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+
+/* HOME */
+
+.home {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.home-img {
+    height: 60%;
+    width: 100%;
+    padding-top: 30px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.list img {
+    width: 100%;
+    height: 80px;
+}
+
+
+/* ARTICLE */
+
+article>p {
+    /* text-align: left; */
+    font-size: 20px;
+    margin-bottom: 20px;
+    columns: 3 25ch;
+    column-gap: 40px;
+    hyphens: auto;
+}
+
+article p:first-child::first-line {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+
+/* blockquote */
+
+
+/* blockquote {
+    text-align: left;
+    font-size: 20px;
+    padding: 10px 30px;
+    margin-bottom: 40px; */
+
+
+/* position: relative; */
+
+
+/* } */
+
+blockquote::before {
+    content: open-quote;
+    position: absolute;
+    top: -48px;
+    left: -4px;
+    opacity: .3;
+    color: #666;
+    font-size: 150px;
+}
+
+@media (max-width: 650px) {
+    .lists {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* invite modal */
+
+.confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    animation-name: confirm---open;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm--close {
+    animation-name: confirm---close;
+}
+
+.confirm__window {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: scale(0.75);
+    animation-name: confirm__window---open;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.confirm__titlebar,
+.confirm__content,
+.confirm__buttons {
+    padding: 1.25em;
+}
+
+.confirm__titlebar {
+    background: #222222;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.confirm__title {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.confirm__close {
+    background: none;
+    outline: none;
+    border: none;
+    transform: scale(2.5);
+    color: #ffffff;
+    transition: color 0.15s;
+}
+
+.confirm__close:hover {
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.confirm__content {
+    line-height: 1.8em;
+}
+
+.confirm__buttons {
+    background: #eeeeee;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.confirm__button {
+    padding: 0.4em 0.8em;
+    border: 2px solid #009879;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #009879;
+    font-weight: bold;
+    font-size: 1.1em;
+    font-family: 'Noto Sans', sans-serif;
+    margin-left: 0.6em;
+    cursor: pointer;
+    outline: none;
+}
+
+.confirm__button--fill {
+    background: #009879;
+    color: #ffffff;
+}
+
+.confirm__button:focus {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes confirm---open {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes confirm---close {
+    from {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes confirm__window---open {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

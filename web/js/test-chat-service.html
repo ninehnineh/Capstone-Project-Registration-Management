@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>TMChat | Socialize</title>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src='tmchat-service.js'></script>
+<script>
+function testLogin()
+{
+alert('login tester starts');
+var tmChatService=new TMChatService();
+tmChatService.login("abcdefg","abcdefg",function(){
+alert('User validated as authentic user');
+},function(){
+alert('Not Authentic');
+},function(){
+alert('Error');
+});
+}
+function testRegister()
+{
+alert('register tester starts');
+var tmChatService=new TMChatService();
+var member=new Member();
+member.username="abcdefg";
+member.password="abcdefg";
+member.name="ABCDEFG";
+tmChatService.register(member,function(){
+alert('Registered successfully');
+},function(exception){
+alert('Not registered : (exception) '+exception);
+},function(){
+alert('Error');
+});
+}
+</script>
+</head>
+<body>
+
+<button type='button' onclick='testLogin()'>Test Login</button></br>
+<button type='button' onclick='testRegister()'>Test Register</button></br>
+</body>
+</html>
