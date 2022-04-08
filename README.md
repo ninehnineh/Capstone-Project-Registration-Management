@@ -14,11 +14,11 @@
 ## DB:
 ![DB Imange](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/9e6639f45fb6e37d5688aca55c07421acdc5b8b2/screenshots/DB.png)
 ## Login By Gmail:
-### index.jsp
+#### index.jsp
 ![Link](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/f317d16a74e2b10a909431fbcc0646a5d84169d7/screenshots/Link.png)
-### Constants
+#### Constants
 ![Login](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/f317d16a74e2b10a909431fbcc0646a5d84169d7/screenshots/Constants.png)
-### GoogleUtils
+#### GoogleUtils
 ![google](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/b67dd088f65d140e21fa031ba8c021c2c68dbf42/screenshots/GoogleUtils.png)
 ## Lombok:
 Lombok is used to optimize, clean, and easy to maintain code.
