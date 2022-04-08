@@ -1,6 +1,8 @@
 # Capstone Project Registration Management Repository
-## You will find in this repo the library to support some math operations, e.g. compute the factorual,...
-
+## About Project:
+* Provides a convenient environment for students to register for a capstone project
+* Mentors can receive a request (to do a project of this mentor) from students, and decide to approve or reject the request
+* Admin is a data provider for a new semester such as eligible students, mentors, and capstone projects
 ## In this repo:
 * Java source code of MathUtility class
 * Java source code to demostrate the TDD/DDT technique using JUnit framework
