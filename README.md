@@ -14,6 +14,13 @@
 	- View projects
 	- Invite members (Leader Role)
 	- Register Projects (Leader Role)
+* As a Mentor:
+	- Accept or reject request register project form groups
+	- Manage groups that are guiding
+* As an Admin:
+	- Import data of students, mentors, project from excel
+	- Manage students
+	- Manage capstone projects
 ## DB:
 ![DB Imange](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/9e6639f45fb6e37d5688aca55c07421acdc5b8b2/screenshots/DB.png)
 ## Login By Gmail:
