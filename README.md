@@ -14,6 +14,7 @@
 ![Link](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/f317d16a74e2b10a909431fbcc0646a5d84169d7/screenshots/Link.png)
 ![Login](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/f317d16a74e2b10a909431fbcc0646a5d84169d7/screenshots/Constants.png)
 ## Lombok:
+Lombok is used to optimize, clean, and easy to maintain code.
 ![Lombok](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/1131b4c9bcf6f2574da14b8624f6df73ddd86236/screenshots/Lombok.png)
 ## Search Using Ajax:
 Using Ajax to avoid refreshing pages and improve UX
