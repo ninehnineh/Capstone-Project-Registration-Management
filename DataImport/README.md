@@ -9,5 +9,6 @@
 ## DocumentProjects:
 ### Discription Of Capstone Projects
 ![Discription](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/0b73dd0756c28d7456502099bba8a7d878f2b82e/screenshots/Discription.png)
-### Template		
+### Template
+![Mota](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/85bc4ebd59a69a11a6a6343a1d82b130d170a624/screenshots/mota.png)		
 #### © 2022 ChinhTruong
