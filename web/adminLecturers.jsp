@@ -44,9 +44,6 @@
     <c:url var="logout" value="LogoutController">
 
     </c:url>
-    <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Admin'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
     <div class="wrapper">
 
         <header class="main-header">
@@ -245,9 +242,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="adminStudents.jsp"><i class="fa fa-circle-o"></i> Manage Students</a></li>
+                            <li><a href="AdminManageStudentNoGroupController"><i class="fa fa-circle-o"></i> Manage Students</a></li>
                             <li><a href="adminGroups.jsp"><i class="fa fa-circle-o"></i> Manage Groups</a></li>
-                            <li><a href="adminProject.jsp"><i class="fa fa-circle-o"></i> Manage Projects</a></li>
+                            <li><a href="AdminProjectController"><i class="fa fa-circle-o"></i> Manage Projects</a></li>
                             <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Manage Lecturers</a></li>
                         </ul>
                     </li>

@@ -44,9 +44,6 @@
         <c:url var="logout" value="LogoutController">
 
         </c:url>
-        <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Admin'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
         <div class="wrapper">
 
             <header class="main-header">
@@ -70,7 +67,7 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                            <li class="dropdown messages-menu">
+<!--                            <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="label label-success">4</span>
@@ -78,10 +75,10 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 4 messages</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
-                                                <!-- start message -->
+                                                 start message 
                                                 <a href="#">
                                                     <div class="pull-left">
                                                         <img src="Chinh Truong.png" class="img-circle" alt="User Image">
@@ -93,13 +90,13 @@
                                                     <p>Fighting!!!</p>
                                                 </a>
                                             </li>
-                                            <!-- end message -->                                       
+                                             end message                                        
                                         </ul>
                                     </li>
                                     <li class="footer"><a href="#">See All Messages</a></li>
                                 </ul>
                             </li>
-                            <!-- Notifications: style can be found in dropdown.less -->
+                             Notifications: style can be found in dropdown.less 
                             <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
@@ -108,7 +105,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 6 notifications</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
@@ -129,13 +126,13 @@
                                     </li>
                                     <li class="footer"><a href="#">View all</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="pages/admin/admin.png" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">Admin</span>
+                                    <span class="hidden-xs">${sessionScope.USER.userName}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
@@ -143,8 +140,7 @@
                                         <img src="pages/admin/admin.png" class="img-circle" alt="User Image">
 
                                         <p>
-                                            Admin
-                                            <small>Member since Feb. 2022</small>
+                                            ${sessionScope.USER.userName}
                                         </p>
                                     </li>
                                     <!-- Menu Footer-->
@@ -172,7 +168,7 @@
                             <img src="pages/admin/admin.png" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p>Admin</p>
+                            <p>${sessionScope.USER.userName}</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
@@ -198,9 +194,9 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Manage Students</a></li>
-                                <li><a href="adminGroups.jsp"><i class="fa fa-circle-o"></i> Manage Groups</a></li>
+                                <!--<li><a href="adminGroups.jsp"><i class="fa fa-circle-o"></i> Manage Groups</a></li>-->
                                 <li><a href="AdminProjectController"><i class="fa fa-circle-o"></i> Manage Projects</a></li>
-                                <li><a href="adminLecturers.jsp"><i class="fa fa-circle-o"></i> Manage Lecturers</a></li>
+                                <!--<li><a href="adminLecturers.jsp"><i class="fa fa-circle-o"></i> Manage Lecturers</a></li>-->
                             </ul>
                         </li>
                     </ul>
@@ -216,17 +212,13 @@
                 <section class="content-header">
                     <h1>
                         Manage Students
-                        <!-- <small>without group</small> -->
                     </h1>
                     <div class="list d-flex align-items-center justify-content-start">
-                        <button type="button" class="btn btn-success btn-sm btn-student">Upload Student</button>
-                        <button type="button" class="btn btn-warning btn-sm btn-student">Import New Semester</button>
-
                         <form method="post" action="ImportStudentController" enctype="multipart/form-data">
-                            <input type="file" name="file" size="60" hidden="true" class="btn btn-primary btn-sm btn-student"/>
+                            <label for="avatar">Choose Student.xls:</label>
+                            <input type="file" name="file" size="60" hidden="true" class="btn btn-primary btn-sm btn-student" required/>
                             <input type="submit" value="Upload" />
                         </form>
-
                     </div>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -243,8 +235,8 @@
                             <div class="nav-tabs-custom">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#tab_1" data-toggle="tab">Students <small>Not In Group</small></a></li>
-                                    <li><a href="#tab_2" data-toggle="tab">Students <small>have no Group</small></a></li>
-                                    <li class=""><a href="#" data-toggle="tab">Random Students <small>for no Group</small></a></li>
+                                    <li><a href="#tab_2" data-toggle="tab" onclick="showUserHaveGroup()">Students <small>In Group</small></a></li>
+                                    <!--<li class=""><a href="#" data-toggle="tab" >Random Students <small>for no Group</small></a></li>-->
                                 </ul>
                                 <div class="tab-content">
                                     <div class="tab-pane active" id="tab_1">
@@ -252,52 +244,100 @@
                                             <div class="col-xs-12">
                                                 <div class="box">
                                                     <div class="box-header">
-                                                        <!--                                                    <h3 class="box-title">Students</h3>
-                                                                                                            <small>without group</small>-->
                                                         <div class="box-tools pull-left">
-                                                            <button type="button" class="btn btn-default btn-sm btn-student">
-                                                                <a href="AdminRandomStudentNoGroupController" >Random</a>
-                                                            </button>
+                                                            <c:if test="${sessionScope.COUNT_STU > 4}">
+                                                                <button type="button" class="btn btn-default btn-sm btn-student">
+                                                                    <a href="AdminRandomStudentNoGroupController">Random</a>
+                                                                </button>
+                                                            </c:if>
                                                         </div>
                                                     </div>
-                                                    <div class="box-body table-responsive no-padding">
-                                                        <table class="table table-hover">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>#</th>
-                                                                    <th>Student Id</th>
-                                                                    <th>Name</th>
-                                                                    <th>Email</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <c:forEach items="${sessionScope.ADMIN_LIST_USER_NO_GROUP}" var="list" varStatus="count">
+                                                    <c:if test="${sessionScope.ADMIN_LIST_USER_NO_GROUP eq null}">
+                                                        <h4 style="text-align-last: center">${requestScope.MESSAGE_ADMIN_NO_GROUP}</h4>
+                                                    </c:if>
+                                                    <c:if test="${sessionScope.ADMIN_LIST_USER_NO_GROUP ne null}">
+                                                        <div class="box-body table-responsive no-padding">
+                                                            <table class="table table-hover">
+                                                                <thead>
                                                                     <tr>
-                                                                        <td style="width: 250px">${count.count}</td>
-                                                                        <td style="width: 500px">${list.userId}</td>
-                                                                        <td style="width: 500px">${list.userName}</td>
-                                                                        <td style="width: 500px">${list.email}</td>
+                                                                        <th>#</th>
+                                                                        <th>Student Id</th>
+                                                                        <th>Name</th>
+                                                                        <th>Email</th>  
                                                                     </tr>
-                                                                </c:forEach>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <c:forEach items="${sessionScope.ADMIN_LIST_USER_NO_GROUP}" var="list" varStatus="count">
+                                                                        <tr>
+                                                                            <td style="width: 250px">${count.count}</td>
+                                                                            <td style="width: 500px">${list.userId}</td>
+                                                                            <td style="width: 500px">${list.userName}</td>
+                                                                            <td style="width: 500px">${list.email}</td>
+                                                                        </tr>
+                                                                    </c:forEach>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </c:if>
                                                     <!-- /.box-body -->
                                                     <div class="box-footer clearfix">
-                                                        <ul class="pagination pagination-sm no-margin pull-right">
-                                                            <!-- <li><a href="#">&laquo;</a></li> -->
-                                                            <li><a href="#">Previous</a></li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">Next</a></li>
-                                                            <!-- <li><a href="#">&raquo;</a></li> -->
-                                                        </ul>
+                                                        <!--                                                        <ul class="pagination pagination-sm no-margin pull-right">
+                                                                                                                     <li><a href="#">&laquo;</a></li> 
+                                                                                                                    <li><a href="#">Previous</a></li>
+                                                                                                                    <li><a href="#">1</a></li>
+                                                                                                                    <li><a href="#">2</a></li>
+                                                                                                                    <li><a href="#">3</a></li>
+                                                                                                                    <li><a href="#">Next</a></li>
+                                                                                                                     <li><a href="#">&raquo;</a></li> 
+                                                                                                                </ul>-->
                                                     </div>
                                                 </div>
                                                 <!-- /.box -->
                                             </div>
                                         </div>
+                                        <!--Random-->
+                                        <div class="box-body table-responsive no-padding">
+                                            <form action="RandomGroupController" method="post">
+                                                <c:forEach items="${sessionScope.SPLIT_GROUP}" var="list" varStatus="group">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="width: 200px">GroupRandom ${group.count}</th>
+                                                                <th style="width: 500px">${sessionScope.SPLIT_PROJECT.get(group.index).name}</th>
+                                                                <th>
+                                                                    <input type="hidden" name="groupName" value="GroupRandom ${group.count}"/>
+                                                                </th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th style="width: 10px">#</th>
+                                                                <th>Student Id</th>
+                                                                <th>Name</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <c:forEach items="${list}" var="list" varStatus="count">
+                                                                <tr>
+                                                                    <td>${count.count}</td>
+                                                                    <td style="width: 300px">${list.userId}</td>
+                                                                    <td style="width: 300px">${list.userName}</td>
+                                                                    <td>
+                                                                        <input type="hidden" name="listStudentId" value="${list.userId}"/>
+                                                                    </td>
+                                                                </tr>
+                                                            </c:forEach>
+                                                        </tbody>
+                                                    </table>
+                                                </c:forEach>
+                                                <c:if test="${sessionScope.SPLIT_GROUP ne null}">
+                                                    <tr>
+                                                        <td colspan="4" >
+                                                            <button type="submit" class="pull-right-container" >Save</button> 
+                                                        </td>
+                                                    </tr>
+                                                </c:if>
+                                            </form>
+                                        </div>
+                                        <!--Random-->
                                     </div>
                                     <!-- /.tab-pane -->
                                     <div class="tab-pane" id="tab_2">
@@ -305,32 +345,32 @@
                                     </div>
                                     <!-- /.tab-pane -->
                                     <div class="tab-pane" id="tab_3">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="box">
-                                                    <div class="box-header">
-                                                        <h3 class="box-title">Group 1</h3>
-                                                        <!-- <small>with group</small> -->
-                                                    </div>
-                                                    <div class="box-body table-responsive no-padding">
-                                                        <table class="table table-hover">
-                                                            <tr>
-                                                                <th style="width : 10px">#</th>
-                                                                <th>Student Id</th>
-                                                                <th>Name</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>SE151278</td>
-                                                                <td>Ngo Chi Bao</td>
-                                                            </tr>
-                                                        </table>
-                                                    </div>
-                                                    <!-- /.box-body -->
-                                                </div>
-                                                <!-- /.box -->
-                                            </div>
-                                        </div>
+                                        <!--                                        <div class="row">
+                                                                                    <div class="col-md-4">
+                                                                                        <div class="box">
+                                                                                            <div class="box-header">
+                                                                                                <h3 class="box-title">Group 1</h3>
+                                                                                                 <small>with group</small> 
+                                                                                            </div>
+                                                                                            <div class="box-body table-responsive no-padding">
+                                                                                                <table class="table table-hover">
+                                                                                                    <tr>
+                                                                                                        <th style="width : 10px">#</th>
+                                                                                                        <th>Student Id</th>
+                                                                                                        <th>Name</th>
+                                                                                                    </tr>
+                                                                                                    <tr>
+                                                                                                        <td>1</td>
+                                                                                                        <td>SE151278</td>
+                                                                                                        <td>Ngo Chi Bao</td>
+                                                                                                    </tr>
+                                                                                                </table>
+                                                                                            </div>
+                                                                                             /.box-body 
+                                                                                        </div>
+                                                                                         /.box 
+                                                                                    </div>
+                                                                                </div>-->
                                     </div>
                                     <!-- /.tab-pane -->
                                 </div>
@@ -371,15 +411,14 @@
         <script src="dist1/js/demo.js"></script>
         <!-- page script -->
         <script>
-            function showUserNoGroup() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onload = function () {
-                    document.getElementById("tab_1").innerHTML = this.responseText;
-                };
-                xhttp.open("GET", "ManageStudentNoGroupController");
-                xhttp.send();
-            }
-
+                                        function showUserHaveGroup() {
+                                            var xhttp = new XMLHttpRequest();
+                                            xhttp.onload = function () {
+                                                document.getElementById("tab_2").innerHTML = this.responseText;
+                                            };
+                                            xhttp.open("GET", "AdminManageStudentHaveGroupController");
+                                            xhttp.send();
+                                        }
         </script>
     </body>
 

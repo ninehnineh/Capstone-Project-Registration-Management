@@ -40,9 +40,6 @@
     </head>
 
     <body class="hold-transition skin-blue sidebar-mini">
-        <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Mentor'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
         <div class="wrapper">
 
             <header class="main-header">
@@ -66,7 +63,7 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                            <li class="dropdown messages-menu">
+<!--                            <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="label label-success">4</span>
@@ -74,10 +71,10 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 4 messages</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
-                                                <!-- start message -->
+                                                 start message 
                                                 <a href="#">
                                                     <div class="pull-left">
                                                         <img src="Chinh Truong.png" class="img-circle" alt="User Image">
@@ -89,13 +86,13 @@
                                                     <p>Fighting!!!</p>
                                                 </a>
                                             </li>
-                                            <!-- end message --> 
+                                             end message  
                                         </ul>
                                     </li>
                                     <li class="footer"><a href="#">See All Messages</a></li>
                                 </ul>
                             </li>
-                            <!-- Notifications: style can be found in dropdown.less -->
+                             Notifications: style can be found in dropdown.less 
                             <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
@@ -104,7 +101,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 6 notifications</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
@@ -125,7 +122,7 @@
                                     </li>
                                     <li class="footer"><a href="#">View all</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">

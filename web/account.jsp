@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -55,9 +56,6 @@
     <c:url var="logout" value="LogoutController">
 
     </c:url>
-    <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Student'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
     <div class="wrapper">
 
         <header class="main-header">
@@ -200,6 +198,10 @@
                 </form> -->
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
+                <c:url var="group" value="GroupController">
+                    <c:param name="groupName" value="${sessionScope.USER.group.name}"></c:param>
+                    <c:param name="email" value="${sessionScope.USER.email}"></c:param>
+                </c:url>
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="treeview active">
                         <a href="#">
@@ -210,8 +212,8 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Account</a></li>
-                            <li><a href="group.jsp"><i class="fa fa-circle-o"></i> Groups</a></li>
-                            <li><a href="projects.jsp"><i class="fa fa-circle-o"></i> Projects</a></li>
+                            <li><a href="${group}"><i class="fa fa-circle-o"></i> Groups</a></li>
+                            <li><a href="ProjectController"><i class="fa fa-circle-o"></i> Projects</a></li>
                             <li><a href="StudentProjectPendingController"><i class="fa fa-circle-o"></i> Projects Had Signed</a>
                             </li>
                         </ul>

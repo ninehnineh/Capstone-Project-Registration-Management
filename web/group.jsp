@@ -48,9 +48,6 @@
         <c:url var="logout" value="LogoutController">
 
         </c:url>
-        <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Student'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
         <div class="wrapper">
 
             <header class="main-header">
@@ -76,19 +73,19 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                            <li class="dropdown messages-menu">
+<!--                            <li class="dropdown messages-menu">
                                 <a href="${link}" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="label label-success">4</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <!--<li class="header">You have 4 messages</li>-->
+                                    <li class="header">You have 4 messages</li>
                                     <%--<c:forEach items="${sessionScope.INVITATION}" var="invite" varStatus="count">--%>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
-                                                <!-- start message -->
+                                                 start message 
                                                 <a href="#">
                                                     <div class="pull-left">
                                                         a
@@ -100,20 +97,20 @@
                                                     <p>Fighting!!!</p>
                                                 </a>
                                             </li>
-                                            <!-- end message -->                                         
+                                             end message                                          
                                         </ul>
                                     </li>
                                     <%--</c:forEach>--%>
                                     <li class="footer"><a href="#">See All Messages</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <!-- Notifications: style can be found in dropdown.less -->
-                            <li class="dropdown notifications-menu">
+<!--                            <li class="dropdown notifications-menu">
 
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
                                     <span class="label label-warning">6</span>
-                                </a>
+                                </a>-->
 
                                 <!--                                <a href="index.jsp" class="csw-btn-button fa fa-bell-o" rel="nofollow" target="_blank" ></a>-->
 
@@ -128,10 +125,10 @@
                                                                 </form>-->
                                 <%--<jsp:useBean id="menu" class="com.group6.capstoneprojectregistration.daos.InvitationPendingDAO" scope="session">                                </jsp:useBean>--%>
                                 <%--<c:forEach items="${menu.getUserPending(sessionScope.USER.email)}" var="list">--%>
-                                <ul class="dropdown-menu" id="notification">
+<!--                                <ul class="dropdown-menu" id="notification">
                                     <li class="header">You have 6 notifications</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
@@ -143,7 +140,7 @@
                                     <li class="footer"><a href="#">View all</a></li>
                                 </ul>
                                 <%--</c:forEach>--%>
-                            </li>
+                            </li>-->
 
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
@@ -209,9 +206,9 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="account.jsp"><i class="fa fa-circle-o"></i> Account</a></li>
+                                <!--<li><a href="account.jsp"><i class="fa fa-circle-o"></i> Account</a></li>-->
                                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Groups</a></li>
-                                <li><a href="projects.jsp"><i class="fa fa-circle-o"></i> Projects</a></li>
+                                <li><a href="ProjectController"><i class="fa fa-circle-o"></i> Projects</a></li>
                                 <li><a href="StudentProjectPendingController"><i class="fa fa-circle-o"></i> Projects Had Signed</a></li>
                             </ul>
                         </li>
@@ -355,21 +352,24 @@
                                                     </div>
                                                     <!-- /.box-body -->
                                                     <div class="box-footer clearfix">
-                                                        <c:if test="${sessionScope.USER.leader eq true && sessionScope.GROUP.project eq null && sessionScope.DETAIL.group.groupId eq null}">
-                                                            <form class="pull-right" action="LeaderDisbandGroupController" id="disbandForm">
-                                                                <input type="hidden" name="groupId" value="${sessionScope.USER.group.groupId}"/>
-                                                                <input type="hidden" name="currentUserId" value="${sessionScope.USER.userId}"/>
-                                                                <input type="hidden" name="groupName" value="${sessionScope.USER.group.name}"/>
-                                                                <input type="submit" id="bttDisband" value="Disband"/>
-                                                            </form>
+                                                        <c:if test="${ sessionScope.DETAIL eq null && sessionScope.USER.group.groupId ne null }">
+                                                            <c:if test="${sessionScope.USER.leader eq true }">
+                                                                <form class="pull-right" action="LeaderDisbandGroupController" id="disbandForm">
+                                                                    <input type="hidden" name="groupId" value="${sessionScope.USER.group.groupId}"/>
+                                                                    <input type="hidden" name="currentUserId" value="${sessionScope.USER.userId}"/>
+                                                                    <input type="hidden" name="groupName" value="${sessionScope.USER.group.name}"/>
+                                                                    <input type="submit" id="bttDisband" value="Disband"/>
+                                                                </form>
+                                                            </c:if>
+                                                            <c:if test="${sessionScope.USER.leader ne true }">
+                                                                <form class="pull-right" action="MemberLeaveGroupController">
+                                                                    <input type="hidden" name="groupId" value="${sessionScope.USER.group.groupId}"/>
+                                                                    <input type="hidden" name="currentUser" value="${sessionScope.USER.userId}"/>
+                                                                    <input type="submit" value="Leave"/>
+                                                                </form>
+                                                            </c:if>
                                                         </c:if>
-                                                        <c:if test="${sessionScope.USER.leader ne true  && sessionScope.USER.group.groupId ne null}">
-                                                            <form class="pull-right" action="MemberLeaveGroupController">
-                                                                <input type="hidden" name="groupId" value="${sessionScope.USER.group.groupId}"/>
-                                                                <input type="hidden" name="currentUser" value="${sessionScope.USER.userId}"/>
-                                                                <input type="submit" value="Leave"/>
-                                                            </form>
-                                                        </c:if>
+                                                        ${requestScope.MESSAGE_LEAVE}
                                                     </div>
                                                 </div>
                                                 <!-- /.box -->

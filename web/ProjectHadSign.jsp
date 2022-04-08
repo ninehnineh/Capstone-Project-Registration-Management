@@ -45,9 +45,6 @@
         <c:url var="logout" value="LogoutController">
 
         </c:url>
-        <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Student'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
         <div class="wrapper">
 
             <header class="main-header">
@@ -71,7 +68,7 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                            <li class="dropdown messages-menu">
+<!--                            <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="label label-success">4</span>
@@ -80,10 +77,10 @@
                                     <%--<c:forEach varStatus="count" items="" var="">--%>
                                     <li class="header">You have 4 messages</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
-                                                <!-- start message -->
+                                                 start message 
                                                 <a href="#">
                                                     <div class="pull-left">
                                                         <img src="" class="img-circle" alt="User Image">
@@ -95,14 +92,14 @@
                                                     <p>Fighting!!!</p>
                                                 </a>
                                             </li>
-                                            <!-- end message -->
+                                             end message 
                                         </ul>
                                     </li>
                                     <%--</c:forEach>--%>
                                     <li class="footer"><a href="#">See All Messages</a></li>
                                 </ul>
                             </li>
-                            <!-- Notifications: style can be found in dropdown.less -->
+                             Notifications: style can be found in dropdown.less 
                             <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
@@ -111,7 +108,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 6 notifications</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
@@ -132,7 +129,7 @@
                                     </li>
                                     <li class="footer"><a href="#">View all</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
@@ -204,9 +201,9 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="account.jsp"><i class="fa fa-circle-o"></i> Account</a></li>
+                                <!--<li><a href="account.jsp"><i class="fa fa-circle-o"></i> Account</a></li>-->
                                 <li><a href="${group}"><i class="fa fa-circle-o"></i> Groups</a></li>
-                                <li><a href="projects.jsp"><i class="fa fa-circle-o"></i> Projects</a></li>
+                                <li><a href="ProjectController"><i class="fa fa-circle-o"></i> Projects</a></li>
                                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Projects Had Signed</a>
                                 </li>
                             </ul>
@@ -239,7 +236,7 @@
                             <div class="nav-tabs-custom">
                                 <div class="tab-content">
                                     <c:if test="${sessionScope.PROJECT_APPROVED eq null || sessionScope.LIST_PROJECT_PENDING eq null}">
-                                        <h4 style="text-align-last: center">${requestScope.MESSAGE}</h4>
+<!--                                        <h4 style="text-align-last: center">${requestScope.MESSAGE}</h4>-->
                                         <h4 style="text-align-last: center">${requestScope.NOT_IN_GROUP}</h4>
                                     </c:if>
                                     <c:if test="${sessionScope.PROJECT_APPROVED ne null && sessionScope.LIST_PROJECT_PENDING eq null}">

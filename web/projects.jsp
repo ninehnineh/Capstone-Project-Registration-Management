@@ -55,9 +55,6 @@
         <c:url var="logout" value="LogoutController">
 
         </c:url>
-        <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Student'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
         <div class="wrapper">
 
             <header class="main-header">
@@ -81,7 +78,7 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                            <li class="dropdown messages-menu">
+<!--                            <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="label label-success">4</span>
@@ -89,10 +86,10 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 4 messages</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
-                                                <!-- start message -->
+                                                 start message 
                                                 <a href="#">
                                                     <div class="pull-left">
                                                         <img src="Chinh Truong.png" class="img-circle" alt="User Image">
@@ -104,14 +101,14 @@
                                                     <p>Fighting!!!</p>
                                                 </a>
                                             </li>
-                                            <!-- end message -->
+                                             end message 
                                         </ul>
                                     </li>
                                     <li class="footer"><a href="#">See All Messages</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <!-- Notifications: style can be found in dropdown.less -->
-                            <li class="dropdown notifications-menu">
+<!--                            <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
                                     <span class="label label-warning">6</span>
@@ -119,7 +116,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 6 notifications</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
@@ -140,7 +137,7 @@
                                     </li>
                                     <li class="footer"><a href="#">View all</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
@@ -212,7 +209,7 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="account.jsp"><i class="fa fa-circle-o"></i> Account</a></li>
+                                <!--<li><a href="account.jsp"><i class="fa fa-circle-o"></i> Account</a></li>-->
                                 <li><a href="${group}"><i class="fa fa-circle-o"></i> Groups</a></li>
                                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Projects</a></li>
                                 <li><a href="StudentProjectPendingController"><i class="fa fa-circle-o"></i> Projects Had Signed</a></li>
@@ -261,82 +258,87 @@
                                 <div class="box-header clearfix">
 
                                     <ul class="pagination pagination-sm no-margin pull-right">
-                                       
+
                                     </ul>
                                 </div>
+                                <c:if test="${sessionScope.LIST_PROJECT eq null}">
+                                    <h4 style="text-align-last: center">${requestScope.BUG}</h4>
+                                </c:if>
                                 <div class="box-body table-responsive no-padding">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Id</th>
-                                                <th>Project Name</th>
-                                                <th>Mentor</th>
-                                                <th>Number of Students</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${sessionScope.LIST_PROJECT}" var="project" varStatus="vs">
-                                                ${requestScope.BUG}
+                                    <c:if test="${sessionScope.LIST_PROJECT ne null}">
+                                        <table class="table table-hover">
+                                            <thead>
                                                 <tr>
-                                                    <td style="width: 100px">${vs.count}</td>
-                                                    <td style="width: 200px">${project.projectId}</td>
-                                                    <td style="width: 1000px">
-                                                        <c:url var="here" value="projects.jsp">
-                                                            <c:param name="projectName" value="${project.name}"></c:param>
-                                                            <c:param name="projectMentor" value="${project.mentor}"></c:param>
-                                                            <c:param name="projectCoMentor" value="${project.coMentor}"></c:param>
-                                                            <c:param name="projectNumOfStu" value="${project.numOfStus}"></c:param>
-                                                            <c:param name="projectDiscription" value="${project.discription}"></c:param>
-                                                        </c:url>
-                                                        <a href="#" data-toggle="modal" data-target="#myModal${vs.index}" data-id=" ${project.discription}"
-                                                           data-id1=" ${project.name}" data-id2="${project.mentor}" data-id3="${project.coMentor}" data-id4="${project.numOfStus}"
-                                                           data-url="${here}" id="viewDetailButton">${project.name}</a>
+                                                    <th>#</th>
+                                                    <th>Id</th>
+                                                    <th>Project Name</th>
+                                                    <th>Mentor</th>
+                                                    <th>Number of Students</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${sessionScope.LIST_PROJECT}" var="project" varStatus="vs">
+                                                    ${requestScope.BUG}
+                                                    <tr>
+                                                        <td style="width: 100px">${vs.count}</td>
+                                                        <td style="width: 200px">${project.projectId}</td>
+                                                        <td style="width: 1000px">
+                                                            <c:url var="here" value="projects.jsp">
+                                                                <c:param name="projectName" value="${project.name}"></c:param>
+                                                                <c:param name="projectMentor" value="${project.mentor}"></c:param>
+                                                                <c:param name="projectCoMentor" value="${project.coMentor}"></c:param>
+                                                                <c:param name="projectNumOfStu" value="${project.numOfStus}"></c:param>
+                                                                <c:param name="projectDiscription" value="${project.discription}"></c:param>
+                                                            </c:url>
+                                                            <a href="#" data-toggle="modal" data-target="#myModal${vs.index}" data-id=" ${project.discription}"
+                                                               data-id1=" ${project.name}" data-id2="${project.mentor}" data-id3="${project.coMentor}" data-id4="${project.numOfStus}"
+                                                               data-url="${here}" id="viewDetailButton">${project.name}</a>
 
-                                                        <!-- Modal -->
-                                                        <div id="myModal${vs.index}" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
-                                                            <div class="modal-dialog" role="document">
-                                                                <!-- Modal content-->
-                                                                <div class="modal-content modal-lg container">
-                                                                    <div class="modal-header" style="background: #3c8dbc" >
-                                                                        <h3 id="sampleId1" style="color: blanchedalmond"></h3>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="row">
-                                                                            ${project.discription}
+                                                            <!-- Modal -->
+                                                            <div id="myModal${vs.index}" class="modal fade" role="dialog" tabindex="-1" aria-labelledby="myModalLabel">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <!-- Modal content-->
+                                                                    <div class="modal-content modal-lg container">
+                                                                        <div class="modal-header" style="background: #3c8dbc" >
+                                                                            <h3 id="sampleId1" style="color: blanchedalmond"></h3>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
+                                                                                ${project.discription}
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <%--<c:if test="${sessionScope.USER.leader}">--%> 
+                                                                            <form action="RegisterProjectController">
+                                                                                <c:if test="${sessionScope.USER.group.groupId eq null}">
+                                                                                    Oops! You are not in any group, please contact your leader or 
+                                                                                    <a href="${group}">click me</a> to create group 
+                                                                                    <input id="sampleId5" type="submit" value="Register" class="btn btn-primary" disabled/>
+                                                                                </c:if>
+                                                                                <c:if test="${sessionScope.USER.group.groupId ne null && sessionScope.USER.leader eq true}">
+                                                                                    <!--                                                                                Oops! Look like, you are not in any group,
+                                                                                                                                                                    <a href="group.jsp">Click me</a> to create/john group first -->
+                                                                                    <input id="sampleId5" type="submit" value="Register" class="btn btn-primary"/>
+                                                                                </c:if>
+                                                                                <input type="hidden" name="projectId" value="${project.projectId}"/>
+                                                                                <input type="hidden" name="groupId" value="${sessionScope.USER.group.groupId}"/>
+                                                                            </form>
+                                                                            <%--</c:if>--%>
+                                                                            <!--<a class="btn btn-primary btn-sm" href="" id="actualDeleteBtn">Back</a>-->
                                                                         </div>
                                                                     </div>
-                                                                    <div class="modal-footer">
-                                                                        <%--<c:if test="${sessionScope.USER.leader}">--%> 
-                                                                        <form action="RegisterProjectController">
-                                                                            <c:if test="${sessionScope.USER.group.groupId eq null}">
-                                                                                Oops! You are not in any group, please contact your leader or 
-                                                                                <a href="group.jsp">click me</a> to create group 
-                                                                                <input id="sampleId5" type="submit" value="Register" class="btn btn-primary" disabled/>
-                                                                            </c:if>
-                                                                            <c:if test="${sessionScope.USER.group.groupId ne null && sessionScope.USER.leader eq true}">
-                                                                                <!--                                                                                Oops! Look like, you are not in any group,
-                                                                                                                                                                <a href="group.jsp">Click me</a> to create/john group first -->
-                                                                                <input id="sampleId5" type="submit" value="Register" class="btn btn-primary"/>
-                                                                            </c:if>
-                                                                            <input type="hidden" name="projectId" value="${project.projectId}"/>
-                                                                            <input type="hidden" name="groupId" value="${sessionScope.USER.group.groupId}"/>
-                                                                        </form>
-                                                                        <%--</c:if>--%>
-                                                                        <!--<a class="btn btn-primary btn-sm" href="" id="actualDeleteBtn">Back</a>-->
-                                                                    </div>
-                                                                </div>
 
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <!-- /.modal -->
-                                                    </td>
-                                                    <td style="width: 300px">${project.mentor.userName}</td>
-                                                    <td style="width: 200px; text-align-last: center">${project.numOfStus}</td>                                                   
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
+                                                            <!-- /.modal -->
+                                                        </td>
+                                                        <td style="width: 300px">${project.mentor.userName}</td>
+                                                        <td style="width: 200px; text-align-last: center">${project.numOfStus}</td>                                                   
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </c:if>
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer clearfix">
@@ -344,7 +346,7 @@
                                         <c:if test="${tag_stu > 1}">
                                             <li class="page-item "><a href="ProjectController?index=${tag_stu-1}" class="page-link">Previous</a> </li>
                                             </c:if>
-                                        <c:forEach begin="1" end="${endP_stu}" var="i" >
+                                            <c:forEach begin="1" end="${endP_stu}" var="i" >
                                             <li class="page-item ${tag == i?"active":""}"><a href="ProjectController?index=${i}" class="page-link">${i}</a> </li>
                                             </c:forEach>
                                             <c:if test="${tag_stu < endP_stu}">

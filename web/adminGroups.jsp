@@ -47,9 +47,6 @@
     <c:url var="logout" value="LogoutController">
 
     </c:url>
-    <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Admin'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
     <div class="wrapper">
 
         <header class="main-header">
@@ -264,7 +261,7 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Manage Students
+                    Manage Groups
                     <!-- <small>without group</small> -->
                 </h1>
                 <div class="list d-flex align-items-center justify-content-start">

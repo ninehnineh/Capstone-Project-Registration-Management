@@ -47,9 +47,6 @@
             <c:url var="logout" value="LogoutController">
 
             </c:url>
-            <c:if test="${sessionScope.USER == null or sessionScope.USER.role.name ne 'Admin'}">
-            <c:redirect url="index.jsp"></c:redirect>
-        </c:if>
             <header class="main-header">
                 <!-- Logo -->
                 <a href="../../index2.html" class="logo">
@@ -71,7 +68,7 @@
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">
                             <!-- Messages: style can be found in dropdown.less-->
-                            <li class="dropdown messages-menu">
+<!--                            <li class="dropdown messages-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-envelope-o"></i>
                                     <span class="label label-success">4</span>
@@ -79,10 +76,10 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 4 messages</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
-                                                <!-- start message -->
+                                                 start message 
                                                 <a href="#">
                                                     <div class="pull-left">
                                                         <img src="Chinh Truong.png" class="img-circle" alt="User Image">
@@ -94,13 +91,13 @@
                                                     <p>Fighting!!!</p>
                                                 </a>
                                             </li>
-                                            <!-- end message -->
+                                             end message 
                                         </ul>
                                     </li>
                                     <li class="footer"><a href="#">See All Messages</a></li>
                                 </ul>
                             </li>
-                            <!-- Notifications: style can be found in dropdown.less -->
+                             Notifications: style can be found in dropdown.less 
                             <li class="dropdown notifications-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-bell-o"></i>
@@ -109,7 +106,7 @@
                                 <ul class="dropdown-menu">
                                     <li class="header">You have 6 notifications</li>
                                     <li>
-                                        <!-- inner menu: contains the actual data -->
+                                         inner menu: contains the actual data 
                                         <ul class="menu">
                                             <li>
                                                 <a href="#">
@@ -130,7 +127,7 @@
                                     </li>
                                     <li class="footer"><a href="#">View all</a></li>
                                 </ul>
-                            </li>
+                            </li>-->
 
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
@@ -173,7 +170,7 @@
                             <img src="pages/admin/admin.png" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p>Admin</p>
+                            <p>${sessionScope.USER.userName}</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
@@ -198,10 +195,10 @@
                                 </span>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="adminStudents.jsp"><i class="fa fa-circle-o"></i> Manage Students</a></li>
-                                <li><a href="adminGroups.jsp"><i class="fa fa-circle-o"></i> Manage Groups</a></li>
+                                <li><a href="AdminManageStudentNoGroupController"><i class="fa fa-circle-o"></i> Manage Students</a></li>
+                                <!--<li><a href="adminGroups.jsp"><i class="fa fa-circle-o"></i> Manage Groups</a></li>-->
                                 <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Manage Projects</a></li>
-                                <li><a href="adminLecturers.jsp"><i class="fa fa-circle-o"></i> Manage Lecturers</a></li>
+                                <!--<li><a href="adminLecturers.jsp"><i class="fa fa-circle-o"></i> Manage Lecturers</a></li>-->
                         </li>
                     </ul>
                     </li>
@@ -220,9 +217,13 @@
                         <!-- <small>without group</small> -->
                     </h1>
                     <div class="list d-flex align-items-center justify-content-start">
-                        <button type="button" class="btn btn-success btn-sm btn-student">Upload Student</button>
-                        <button type="button" class="btn btn-warning btn-sm btn-student">Import New Semester</button>
-                        <button type="button" class="btn btn-primary btn-sm btn-student">Import Excel</button>
+                        <form method="post" action="ImportProjectController" enctype="multipart/form-data">
+                            <label for="avatar">Choose Project.xls:</label>
+                            <input type="file" name="files" size="60" class="btn btn-primary btn-sm btn-student"/>
+                            <label for="avatar">Choose ProjectId.docx:</label>
+                            <input type="file" name="files" multiple size="60" class="btn btn-primary btn-sm btn-student"/>
+                            <input type="submit" value="Upload" />
+                        </form>
                     </div>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -252,50 +253,49 @@
                                 <!-- /.box-header -->
                                 <div class="box-header clearfix">
                                     <ul class="pagination pagination-sm no-margin pull-left">
-                                        
+
                                     </ul>
                                     <ul class="pagination pagination-sm no-margin pull-right">
-                                        <i class="fas fa-filter">Filter</i>
-                                        <select class="select">
-                                            <option><a href="#">Spring 2022</a></option>
-                                            <option><a href="#">Fall 2021</a></option>
-                                        </select>
                                     </ul>
                                 </div>
                                 <!-- /.box-header -->
-                                <div class="box-body table-responsive no-padding">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th style="width : 10px">#</th>
-                                                <th>Project Id</th>
-                                                <th>Project Name</th>
-                                                <th>Mentor</th>
-                                                <th>Number Of Student</th>
-                                                <th>Selected</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${sessionScope.LIST_PROJECT_ADMIN}" var="project" varStatus="vs">
+                                <c:if test="${sessionScope.LIST_PROJECT_ADMIN eq null}">
+                                    <h4 style="text-align-last: center">${requestScope.BUG}</h4>
+                                </c:if>
+                                <c:if test="${sessionScope.LIST_PROJECT_ADMIN ne null}">
+                                    <div class="box-body table-responsive no-padding">
+                                        <table class="table table-hover">
+                                            <thead>
                                                 <tr>
-                                                    <th >${vs.count}</th>
-                                                    <th style="width: 250px">${project.projectId}</th>
-                                                    <td style="width: 1000px">${project.name}</td>
-                                                    <td style="width: 500px">${project.mentor.userName}</td>
-                                                    <td style="width: 500px">${project.numOfStus}</td>
-                                                    <td style="width: 500px">${project.selected}</td>
+                                                    <th style="width : 10px">#</th>
+                                                    <th>Project Id</th>
+                                                    <th>Project Name</th>
+                                                    <th>Mentor</th>
+                                                    <th>Number Of Student</th>
+                                                    <th>Selected</th>
                                                 </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach items="${sessionScope.LIST_PROJECT_ADMIN}" var="project" varStatus="vs">
+                                                    <tr>
+                                                        <th >${vs.count}</th>
+                                                        <th style="width: 250px">${project.projectId}</th>
+                                                        <td style="width: 1000px">${project.name}</td>
+                                                        <td style="width: 500px">${project.mentor.userName}</td>
+                                                        <td style="width: 500px">${project.numOfStus}</td>
+                                                        <td style="width: 500px">${project.selected}</td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </c:if>
                                 <!-- /.box-body -->
                                 <div class="box-footer clearfix">
                                     <ul class="pagination pagination-sm no-margin pull-right">
                                         <c:if test="${tag > 1}">
                                             <li class="page-item "><a href="AdminProjectController?index=${tag-1}" class="page-link">Previous</a> </li>
                                             </c:if>
-
                                         <c:forEach begin="1" end="${endP}" var="i" >
                                             <li class="page-item ${tag == i?"active":""}"><a href="AdminProjectController?index=${i}" class="page-link">${i}</a> </li>
                                             </c:forEach>
