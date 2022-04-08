@@ -11,7 +11,7 @@
 ## DB:
 ![DB Imange](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/9e6639f45fb6e37d5688aca55c07421acdc5b8b2/screenshots/DB.png)
 ## Lombok:
-![Lombok]
+![Lombok](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/1131b4c9bcf6f2574da14b8624f6df73ddd86236/screenshots/Lombok.png)
 
 
 #### © 2022 ChinhTruong
