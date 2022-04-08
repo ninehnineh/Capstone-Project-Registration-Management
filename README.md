@@ -13,7 +13,7 @@
 ## Lombok:
 ![Lombok](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/1131b4c9bcf6f2574da14b8624f6df73ddd86236/screenshots/Lombok.png)
 ## Search Using Ajax:
-
+![SearchUsingAjax](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/a578c974e72b34527768860cdd63ccabd1136bcf/screenshots/SearchAjax.png)
 
 
 #### © 2022 ChinhTruong
