@@ -8,8 +8,9 @@
 * Bootstrap, HTML, CSS, JS, jQuery, Ajax
 * Microsoft SQL Server
 * Netbeans 8, Apache Tomcat
-## Member:
+## DB:
+https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/9e6639f45fb6e37d5688aca55c07421acdc5b8b2/screenshots/DB.png
 ## Screenshots for DDT/TDD/JUnit
-![DDT-TDD-JUnit code](https://github.com/chinhtc98/math-util/blob/241b517acea36b7136c24e776dbd89aef9a0e097/screenshots/DDT-TDD-JUnit.png)
+
 
 #### © 2022 ChinhTruong
