@@ -9,7 +9,6 @@ package com.group6.capstoneprojectregistration.dtos;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -39,7 +38,5 @@ public class UserDTO implements Serializable{
         this.role = null;
         this.group = null;
         this.isLeader = false;
-    }
-
-    
+    } 
 }
