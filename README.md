@@ -9,7 +9,7 @@
 * Microsoft SQL Server
 * Netbeans 8, Apache Tomcat
 ## DB:
-https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/9e6639f45fb6e37d5688aca55c07421acdc5b8b2/screenshots/DB.png
+![DB Imange](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/9e6639f45fb6e37d5688aca55c07421acdc5b8b2/screenshots/DB.png)
 ## Screenshots for DDT/TDD/JUnit
 
 
