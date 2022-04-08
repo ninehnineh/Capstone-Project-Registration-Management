@@ -522,7 +522,6 @@
             var event = currentRow.find("td:eq(4)").text();
             var receiver = currentRow.find("td:eq(5)").text();
             var action = $('#btnDeleteMessage').val();
-
             $.ajax({
                 url: 'DeleteMessageController',
                 method: 'post',
