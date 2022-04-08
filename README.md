@@ -4,7 +4,7 @@
 * Mentors can receive a request (to do a project of this mentor) from students, and decide to approve or reject the request
 * Admin is a data provider for a new semester such as eligible students, mentors, and capstone projects
 ## Technologies:
-* jsp & servlets, jstl, Lombok
+* Jsp & Servlets, Jstl, Lombok
 * Bootstrap, HTML, CSS, JS, jQuery, Ajax
 * Microsoft SQL Server
 * Netbeans 8, Apache Tomcat
