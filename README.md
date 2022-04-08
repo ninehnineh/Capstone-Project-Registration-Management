@@ -16,6 +16,7 @@
 ## Lombok:
 ![Lombok](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/1131b4c9bcf6f2574da14b8624f6df73ddd86236/screenshots/Lombok.png)
 ## Search Using Ajax:
+Using Ajax to avoid refreshing pages and improve UX
 ![SearchForm](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/3bb808e4f2a10f79f802a9e1c458246d1c3172ee/screenshots/SearchForm.png)
 ![SearchUsingAjax](https://github.com/ninehnineh/Capstone-Project-Registration-Management/blob/a578c974e72b34527768860cdd63ccabd1136bcf/screenshots/SearchAjax.png)
 
