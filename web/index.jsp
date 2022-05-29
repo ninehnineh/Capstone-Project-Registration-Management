@@ -38,10 +38,12 @@
         .container{
             position: relative;
             width: 400px;
-            height: 400px;
+            height: 457px;
             background: white;
             padding: 60px 40px;
             margin-left: -350px;
+            margin-top: 10px;
+            
         }
         header{
             font-size: 40px;
@@ -52,9 +54,9 @@
 
         .container .logo .logobg{
             width: 400px;
-            height: 400px; 
-            margin-left: 350px;
-            margin-top: -323px;
+            height: 457px; 
+            margin-left: 355px;
+            margin-top: -450px;
         }
         .input-field, form .button{
             margin: 25px 0;
@@ -273,7 +275,10 @@
         .select-box .option .radio {
             display: none;
         }
-
+        
+        .container .logoApp{
+            padding-bottom: -20px;
+        }
 
         .container .logoApp .icon1{
             border-radius: 50%;
@@ -296,18 +301,28 @@
                 <img class="icon1" src="img/logo.jpg" alt="">
                 <img class="icon2" src="img/logo.png" alt="">
             </div>
-
+            
+            <div>
             <header>Login</header>
-
-
-            <div class="links">
-                <div class="student">
-                    <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Capstone-Project-Registration/LoginGoogleController&response_type=code
-                       &client_id=90676323264-m344qcc3bv607iu3jttu76l9ec5g0ekt.apps.googleusercontent.com&approval_prompt=force">
-                        <i class="fab fa-google-plus-square"><span>Login With Google</span></i></a></br>  
-                    <h4>${requestScope.ERROR_LOGIN}</h4>
-                </div>
             </div>
+            <form>
+                <div class="input-field">
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-field">
+                    <input class="pswrd" type="password" required>
+                    <span class="show">SHOW</span>
+                    <label>Password</label>
+                </div>
+                <div class="button">
+                    <div class="inner"></div>
+                    <button>LOGIN</button>
+                </div>
+            </form>
+
+
+            
 
             <div class="logo">
                 <img class="logobg" src="img/logo.jpg" alt="">
